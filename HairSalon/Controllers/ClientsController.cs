@@ -67,9 +67,9 @@ namespace HairSalon.Controllers
       return RedirectToAction("Details", "Stylists", new { id = thisClient.StylistId });
     }
 
-    [HttpGet("/clientsearch")]
+    [HttpGet("/search")]
 
-    public ActionResult ClientSearch(string search, string searchParam)
+    public ActionResult Search(string search, string searchParam)
     {
 
       var model = from m in _db.Clients select m;
@@ -91,7 +91,7 @@ namespace HairSalon.Controllers
 
       matchesClient = model.ToList();
 
-      return RedirectToAction("Search", "Clients", matchesClient);
+      return View(matchesClient);
     }
   }
 }

@@ -69,37 +69,39 @@ namespace HairSalon.Controllers
     public ActionResult DeleteConfirmed(int id)
     {
       var thisStylist = _db.Stylists.FirstOrDefault(stylist => stylist.StylistId == id);
+      // var thisClient = _db.Clients.Where(client => client.StylistId == id);
+      // _db.Clients.Remove(thisClient);
       _db.Stylists.Remove(thisStylist);
       _db.SaveChanges();
       return RedirectToAction("Index");
     }
 
 
-    [HttpGet("/search")]
+    [HttpGet("/stylistsearch")]
 
-    public ActionResult Search(string search, string searchParam)
+    public ActionResult Stylistsearch(string searchStylist, string searchStylistParam)
     {
 
       var model = from m in _db.Stylists select m;
 
-      List<Stylist> matchesClient = new List<Stylist> { };
+      List<Stylist> matchesStylist = new List<Stylist> { };
 
-      if (!string.IsNullOrEmpty(search))
+      if (!string.IsNullOrEmpty(searchStylist))
       {
-        if (searchParam == "First")
+        if (searchStylistParam == "First")
         {
-          model = model.Where(n => n.FirstName.Contains(search));
+          model = model.Where(n => n.FirstName.Contains(searchStylist));
 
         }
         else
         {
-          model = model.Where(n => n.LastName.Contains(search));
+          model = model.Where(n => n.LastName.Contains(searchStylist));
         }
       }
 
-      matchesClient = model.ToList();
+      matchesStylist = model.ToList();
 
-      return RedirectToAction("Search", "Stylists", matchesClient);
+      return View(matchesStylist);
     }
   }
 }

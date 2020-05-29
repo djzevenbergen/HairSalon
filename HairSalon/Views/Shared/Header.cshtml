@@ -1,6 +1,6 @@
 
 <h1>Claire's Controlboard</h1>
-<form action="/clientsearch" method="get">
+<form action="/search" method="get">
   <label for="search">Search Clients</label>
   <input type="text" name="search">
   @Html.RadioButton("searchParam", "First", new { @checked = "checked" })
@@ -10,12 +10,13 @@
   <button type="submit">Search</button>
 </form>
 
-<form action="/stylists/search" method="get">
-  <label for="search">Search Stylists</label>
-  <input type="text" name="search">
-  @Html.RadioButton("searchParam", "First", new { @checked = "checked" })
-  <label for="searchParam">Search By First Name</label>
-  @Html.RadioButton("searchParam", "Last")
-  <label for="searchParam">Search by Last Name</label>
+
+<form action="/stylistsearch" method="get">
+  <label for="searchStylist">Search Stylists</label>
+  <input type="text" name="searchStylist">
+  @Html.RadioButton("searchStylistParam", "First", new { @checked = "checked" })
+  <label for="searchStylistParam">Search By First Name</label>
+  @Html.RadioButton("searchStylistParam", "Last")
+  <label for="searchStylistParam">Search by Last Name</label>
   <button type="submit">Search</button>
 </form>
