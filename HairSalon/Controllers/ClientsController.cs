@@ -71,27 +71,22 @@ namespace HairSalon.Controllers
 
     public ActionResult Search(string search, string searchParam)
     {
-      var model;
-      string route = "";
+      var model = from m in _db.Clients select m;
+      List<Client> matchesClient = new List<Client> { };
 
       if (!string.IsNullOrEmpty(search))
       {
-        if (searchParam == "Stylist")
+        if (searchParam == "Client")
         {
-          model = from m in _db.Stylists select m;
-          model = model.Where(m => m.FirstName.Contains(search));
-          List<Stylist> matches = model.ToList();
-          route = "Stylists";
+          model = model.Where(n => n.FirstName.Contains(search));
         }
-        else if (searchParam == "Client")
+        else
         {
-          model = from m in _db.Clients select m;
-          model = model.Where(m => m.FirstName.Contains(search));
-          List<Stylist> matches = model.ToList();
-          route = "Clients";
+          return RedirectToAction("Search", matchesClient);
         }
       }
-      return RedirectToAction("Search", route, matches);
+      matchesClient = model.ToList();
+      return View(matchesClient);
     }
   }
 }
