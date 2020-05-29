@@ -15,7 +15,7 @@ _This C#/.NET Core MVC application uses a MySQL databse to allow the user to cre
 * ensure that mysql is installed on your computer
 * if you have mysql workbench, use administration>Data import/restore>import from self-contained file>HairSalon.Solution/david_zevenbergen.sql>start import
 * create a file named "appsettings.json" in the HairSalon folder
-* populate appsettings.json with the following text:
+* populate appsettings.json with the following text (making sure you use your port number, uid, and password):
 
         {
           "ConnectionStrings": {
@@ -25,9 +25,8 @@ _This C#/.NET Core MVC application uses a MySQL databse to allow the user to cre
 
 * in the terminal navigate to the project's root directory
 * use "dotnet restore HairSalon"
-* to start the application use "dotnet build HairSalon" and "dotnet run HairSalon"
-
-
+* navigate into HairSalon folder "cd HairSalon"
+* to start the application use "dotnet build" and "dotnet run"
 
 ## Specs
 1. User is presented with a homepage, and given the option to see go to the Stylists page
