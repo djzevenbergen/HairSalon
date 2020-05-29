@@ -1,0 +1,13 @@
+@{
+  Layout = "_Layout";
+}
+
+@using HairSalon.Models;
+@model List<HairSalon.Models.Stylist>;
+
+<h2>Search Results:</h2>
+
+@foreach(Stylist stylist in Model)
+{
+   <li>@Html.ActionLink($"{stylist.FirstName} {stylist.LastName}" , "Details", new {id = stylist.StylistId})</li>
+}

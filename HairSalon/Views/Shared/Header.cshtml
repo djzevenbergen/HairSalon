@@ -1,0 +1,11 @@
+
+<h1>Claire's Controlboard</h1>
+<form action="/search" method="get">
+
+  <input type="text" name="search">
+  @Html.RadioButton("searchParam", "Stylist")
+  <label for="searchParam">Search By Stylist Name</label>
+  @Html.RadioButton("searchParam", "Client")
+  <label for="searchParam">Search by Client Name</label>
+  <button type="submit">Search</button>
+</form>

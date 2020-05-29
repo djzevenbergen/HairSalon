@@ -16,12 +16,6 @@ namespace HairSalon.Controllers
       _db = db;
     }
 
-    // public ActionResult Index()
-    // {
-    //   List<Client> model = _db.Clients.Include(restaurants => restaurants.Stylist).ToList();
-    //   return View(model);
-    // }
-
     public ActionResult Create()
     {
       ViewBag.StylistId = new SelectList(_db.Stylists, "StylistId", "FirstName");
@@ -71,6 +65,33 @@ namespace HairSalon.Controllers
       _db.Clients.Remove(thisClient);
       _db.SaveChanges();
       return RedirectToAction("Details", "Stylists", new { id = thisClient.StylistId });
+    }
+
+    [HttpGet("/search")]
+
+    public ActionResult Search(string search, string searchParam)
+    {
+      var model;
+      string route = "";
+
+      if (!string.IsNullOrEmpty(search))
+      {
+        if (searchParam == "Stylist")
+        {
+          model = from m in _db.Stylists select m;
+          model = model.Where(m => m.FirstName.Contains(search));
+          List<Stylist> matches = model.ToList();
+          route = "Stylists";
+        }
+        else if (searchParam == "Client")
+        {
+          model = from m in _db.Clients select m;
+          model = model.Where(m => m.FirstName.Contains(search));
+          List<Stylist> matches = model.ToList();
+          route = "Clients";
+        }
+      }
+      return RedirectToAction("Search", route, matches);
     }
   }
 }
