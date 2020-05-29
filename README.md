@@ -74,7 +74,7 @@ _This C#/.NET Core MVC application uses a MySQL databse to allow the user to cre
 
 
 ## Support
-_Open an issue_
+_Open an issue on github_
 
 
 ## Built With
