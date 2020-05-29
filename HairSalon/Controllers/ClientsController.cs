@@ -33,7 +33,6 @@ namespace HairSalon.Controllers
     {
       Client thisClient = _db.Clients.FirstOrDefault(clients => clients.ClientId == id);
       thisClient.Stylist = _db.Stylists.FirstOrDefault(stylist => stylist.StylistId == thisClient.StylistId);
-      // thisClient.Reviews = _db.Reviews.Where(review => review.ClientId == id).ToList();
       return View(thisClient);
     }
 
