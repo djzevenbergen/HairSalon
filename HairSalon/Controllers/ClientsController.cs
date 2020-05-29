@@ -34,7 +34,6 @@ namespace HairSalon.Controllers
       _db.Clients.Add(client);
       _db.SaveChanges();
       return RedirectToAction("Details", "Stylists", new { id = client.StylistId });
-      //return RedirectToAction("Index");
     }
     public ActionResult Details(int id)
     {
@@ -50,7 +49,6 @@ namespace HairSalon.Controllers
       ViewBag.StylistId = new SelectList(_db.Stylists, "StylistId", "Name");
       return View(thisClient);
     }
-
 
     [HttpPost]
     public ActionResult Edit(Client client)
