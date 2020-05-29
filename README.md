@@ -1,6 +1,6 @@
 # _Hair Salon_
 
-#### _MVC application for keeping track of hair stylists and their clients. 5/22/2020_
+#### _MVC application for keeping track of hair stylists and their clients. 5/29/2020_
 
 ### Made by DJ Zevenbergen
 
@@ -13,7 +13,7 @@ _This C#/.NET Core MVC application uses a MySQL databse to allow the user to cre
 * Clone repository from GitHub in terminal or console
 * ensure that C#/.netcore2.2 is installed on your computer
 * in the terminal navigate to the project's root directory
-* the fist_last.sql database should be functional as is
+* the david_zevenbergen.sql database should be functional as is
 * use "dotnet restore HairSalon"
 * to start the application use "dotnet build HairSalon" and "dotnet run HairSalon"
 
@@ -23,25 +23,46 @@ _This C#/.NET Core MVC application uses a MySQL databse to allow the user to cre
 1. User is presented with a homepage, and given the option to see go to the Stylists page
   * Input: "Go to vendors page"
   * Output: "/Stylists"
-2. User can create a new Vendor
-  * Input: "create new Vendor"
-  * Output: "/vendors/new"
-3. User fills out Vendor form and is redirected to now populated Vendors page
-  * Input: "Jane's Cafe" "located downtown. usually orders every 3 days" "submit vendor"
-  * Output: "/vendors" "Janes's Cafe"
-4. User can click on a Vendor to see details incl. all orders by that Vendor and the Vendor's description
-  * Input: "Click 'Jane's cafe'"
-  * Output: "Jane's Cafe"
-            "Located downtown. usually orders every 3 days"
-            "Orders:"
-            "No Orders Yet"
-            "Add Order?"
-5. User can click Add Order on a specific Vendor's page
-  * Input: "Add Order"
-  * Output: "/vendors/{id}/orders/new"
-6. User fills out a form and is redirected to the Vendor that they were working on 
-  * Input: "Croissants" "Wants these croissants slightly underdone" "40" "$80.00" "5/25/2020"
-  * Output: "/vendors/{id}"
+2. User can create a new Stylist
+  * Input: "create new Stylist"
+  * Output: "/stylists/create
+3. User fills out stylist form and is redirected to now populated stylists page
+  * Input: "Jan" "Janison" "5555555555" "add stylist"
+  * Output: "/stylists/index" "Jan Janison"
+4. User can click on a Stylist to see details incl. all orders clients that that stylist has
+  * Input: "Click 'Jan Janison'"
+  * Output: "Jan Janison Details"
+            "First Name: Jan"
+            "Last Name: Janison"
+            "Phone Number: 5555555555"
+            "Client List"
+            "No clients yet!"
+            "Add client"
+            "Edit Stylist"
+            "Delete Stylist"
+            "Back to List"
+5. User can click Add Client on that stylist's page
+  * Input: "Add Client"
+  * Output: "/clients/create"
+6. User fills out a Client form and is then redirecte to the Stylist's page to whom that client was added" 
+  * Input: "Jim" "Johnson" "2222222222" "Jan" "add client"
+  * Output: "/vendors/details/{jan's id}"
+
+7. User can search for clients or stylists by first or last name
+  * Input: "jim" "clients" "search by first name" "search"
+  * Output: "Jim Johnson"
+
+8. User can click on clients for more details on either the Stylist's details page or from the search
+  * Input: "click jim johnson"
+  * Output: "Client Details"
+            "First Name: Jim"
+            "Last Name: Johnson"
+            "Phone Number: 2222222222"
+            "Stylist: Jan"
+            "edit client"
+            "delete this client"
+            "back to stylist"
+
 
 ## Support
 _Open an issue_
