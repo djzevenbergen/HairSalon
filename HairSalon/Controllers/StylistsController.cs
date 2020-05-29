@@ -75,31 +75,31 @@ namespace HairSalon.Controllers
     }
 
 
-    // [HttpGet("/search")]
+    [HttpGet("/search")]
 
-    // public ActionResult Search(string search, string searchParam)
-    // {
-    //   var model;
-    //   string route = "";
+    public ActionResult Search(string search, string searchParam)
+    {
 
-    //   if (!string.IsNullOrEmpty(search))
-    //   {
-    //     if (searchParam == "Stylist")
-    //     {
-    //       model = from m in _db.Stylists select m;
-    //       model = model.Where(m => m.FirstName.Contains(search));
-    //       List<Stylist> matches = model.ToList();
-    //       route = "Stylists";
-    //     }
-    //     else if (searchParam == "Client")
-    //     {
-    //       model = from m in _db.Clients select m;
-    //       model = model.Where(m => m.FirstName.Contains(search));
-    //       List<Stylist> matches = model.ToList();
-    //       route = "Clients";
-    //     }
-    //   }
-    //   return RedirectToAction("Search", route, matches);
-    // }
+      var model = from m in _db.Stylists select m;
+
+      List<Stylist> matchesClient = new List<Stylist> { };
+
+      if (!string.IsNullOrEmpty(search))
+      {
+        if (searchParam == "First")
+        {
+          model = model.Where(n => n.FirstName.Contains(search));
+
+        }
+        else
+        {
+          model = model.Where(n => n.LastName.Contains(search));
+        }
+      }
+
+      matchesClient = model.ToList();
+
+      return RedirectToAction("Search", "Stylists", matchesClient);
+    }
   }
 }

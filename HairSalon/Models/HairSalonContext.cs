@@ -12,5 +12,4 @@ namespace HairSalon.Models
     public HairSalonContext(DbContextOptions options) : base(options) { }
 
   }
-
 }
