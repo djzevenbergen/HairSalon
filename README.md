@@ -14,6 +14,35 @@ _This C#/.NET Core MVC application uses a MySQL databse to allow the user to cre
 * ensure that C#/.netcore2.2 is installed on your computer
 * ensure that mysql is installed on your computer
 * if you have mysql workbench, use administration>Data import/restore>import from self-contained file>HairSalon.Solution/david_zevenbergen.sql>start import
+* if you don't have mysql workbench, here are the create statements:
+
+
+        CREATE DATABASE `david_zevenbergen` /*!40100 DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci */;
+        
+        USE david_zevenbergen;
+        
+        CREATE TABLE `clients` (
+          `ClientId` int(11) NOT NULL AUTO_INCREMENT,
+          `FirstName` varchar(45) DEFAULT NULL,
+          `LastName` varchar(45) DEFAULT NULL,
+          `PhoneNumber` varchar(15) DEFAULT NULL,
+          `StylistId` int(11) NOT NULL,
+          PRIMARY KEY (`ClientId`),
+          KEY `StylistId_idx` (`StylistId`),
+          CONSTRAINT `StylistId` FOREIGN KEY (`StylistId`) REFERENCES `stylists` (`StylistId`) ON DELETE CASCADE
+        ) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+        CREATE TABLE `stylists` (
+          `StylistId` int(11) NOT NULL AUTO_INCREMENT,
+          `FirstName` varchar(45) DEFAULT 'null',
+          `LastName` varchar(45) DEFAULT 'null',
+          `PhoneNumber` varchar(45) DEFAULT 'null',
+          PRIMARY KEY (`StylistId`)
+        ) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+
+
+
+
 * create a file named "appsettings.json" in the HairSalon folder
 * populate appsettings.json with the following text (making sure you use your port number, uid, and password):
 
