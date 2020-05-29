@@ -4,9 +4,21 @@
 
 @model HairSalon.Models.Stylist
 @using HairSalon.Models
-<h2>Category Details</h2>
+<h2>@Model.FirstName @Model.LastName Details</h2>
 
 <hr />
+
+<p>First Name: @Model.FirstName</p>
+
+<p>Last Name: @Model.LastName</p>
+
+<p>Phone Number: @Model.PhoneNumber</p>
+
+
+<br>
+<br>
+<h3>Client List</h3>
+<div class="panel">
 
 <ul>
 @if (@Model.Clients.Count == 0)
@@ -16,11 +28,11 @@
 
 @foreach (Client client in @Model.Clients)
 {
-  <li>@Html.ActionLink($"{client.FirstName} {client.LastName} ", "Details", "Clients", new {id = client.ClientId}) | @client.Stylist.FirstName + " " + @client.Stylist.LastName</li>
+  <li>@Html.ActionLink($"{client.FirstName} {client.LastName} ", "Details", "Clients", new {id = client.ClientId})</li>
 }
 </ul>
+</div>
 
-<h3>@Html.DisplayNameFor(model => model.FirstName): @Html.DisplayFor(model => model.FirstName)</h3>
 <p>@Html.ActionLink("Add Client", "Create", "Clients", new { id = Model.StylistId })</p>
 <p>@Html.ActionLink("Edit Stylist", "Edit", new { id = Model.StylistId })</p>
 <p>@Html.ActionLink("Delete Stylist", "Delete", new { id = Model.StylistId})</p>
