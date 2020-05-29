@@ -9,25 +9,19 @@
 <hr />
 
 <ul>
-@if (@Model.Restaurants.Count == 0)
+@if (@Model.Clients.Count == 0)
 {
   <p>no items found</p>
 }
 
-@foreach (Restaurant restaurant in @Model.Restaurants)
+@foreach (Client client in @Model.Clients)
 {
-  <li>Description: @restaurant.Name</li>
-  <li>@Html.ActionLink($"{restaurant.Name}", "Details", "Restaurants", new {id = restaurant.RestaurantId}) | @client.Stylist.FirstName + " " + @client.Stylist.LastName</li>
+  <li>@Html.ActionLink($"{client.FirstName} {client.LastName} ", "Details", "Clients", new {id = client.ClientId}) | @client.Stylist.FirstName + " " + @client.Stylist.LastName</li>
 }
 </ul>
 
-@* @foreach (Restaurant restaurant in Model.Restaurants)
-{
-  <li>@Html.DiplayNameFor($"{restaurant.Name}", "Details", new { id = restaurant.RestaurantId })</li>
-} *@
-
 <h3>@Html.DisplayNameFor(model => model.Name): @Html.DisplayFor(model => model.Name)</h3>
-<p>@Html.ActionLink("Add Restaurant", "Create", "Restaurants", new { id = Model.StylistId })</p>
+<p>@Html.ActionLink("Add Client", "Create", "Clients", new { id = Model.StylistId })</p>
 <p>@Html.ActionLink("Edit Stylist", "Edit", new { id = Model.StylistId })</p>
 <p>@Html.ActionLink("Delete Stylist", "Delete", new { id = Model.StylistId})</p>
 <p>@Html.ActionLink("Back to List", "Index")</p>
