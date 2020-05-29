@@ -6,6 +6,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Logging.Console;
 using System;
+using MySql.Data.MySqlClient;
 
 
 namespace HairSalon.Controllers
@@ -69,8 +70,7 @@ namespace HairSalon.Controllers
     public ActionResult DeleteConfirmed(int id)
     {
       var thisStylist = _db.Stylists.FirstOrDefault(stylist => stylist.StylistId == id);
-      // var thisClient = _db.Clients.Where(client => client.StylistId == id);
-      // _db.Clients.Remove(thisClient);
+
       _db.Stylists.Remove(thisStylist);
       _db.SaveChanges();
       return RedirectToAction("Index");
