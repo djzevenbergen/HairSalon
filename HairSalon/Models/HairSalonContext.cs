@@ -10,13 +10,7 @@ namespace HairSalon.Models
     public DbSet<Client> Clients { get; set; }
 
     public HairSalonContext(DbContextOptions options) : base(options) { }
-    public static readonly LoggerFactory MyLoggerFactory = new LoggerFactory(new[] { new ConsoleLoggerProvider((_, __) => true, true) });
 
-
-    protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-    {
-      optionsBuilder.UseLazyLoadingProxies().UseLoggerFactory(MyLoggerFactory);
-    }
   }
 
 }
