@@ -12,8 +12,9 @@ _This C#/.NET Core MVC application uses a MySQL databse to allow the user to cre
 ## Setup/Installation Requirements
 * Clone repository from GitHub in terminal or console
 * ensure that C#/.netcore2.2 is installed on your computer
+* ensure that mysql is installed on your computer
+* if you have mysql workbench, use administration>Data import/restore>import from self-contained file>HairSalon.Solution/david_zevenbergen.sql>start import
 * in the terminal navigate to the project's root directory
-* the david_zevenbergen.sql database should be functional as is
 * use "dotnet restore HairSalon"
 * to start the application use "dotnet build HairSalon" and "dotnet run HairSalon"
 
