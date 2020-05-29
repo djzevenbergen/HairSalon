@@ -8,11 +8,11 @@
 <h2>Client Details</h2>
 
 <br>
-<h3>@Html.DisplayNameFor(model => model.FirstName): @Html.DisplayFor(model => model.FirstName)<h3>
-<h3>@Html.DisplayNameFor(model => model.LastName): @Html.DisplayFor(model => model.LastName)<h3>  
-<h3>@Html.DisplayNameFor(model => model.PhoneNumber): @Html.DisplayFor(model => model.PhoneNumber)<h3>
-<h3>@Html.DisplayNameFor(model => model.Stylist.FirstName): @Html.DisplayFor(model => model.Stylist.FirstName)<h3>
+<p>@Html.DisplayNameFor(model => model.FirstName): @Html.DisplayFor(model => model.FirstName)</p>
+<p>@Html.DisplayNameFor(model => model.LastName): @Html.DisplayFor(model => model.LastName)</p>  
+<p>@Html.DisplayNameFor(model => model.PhoneNumber): @Html.DisplayFor(model => model.PhoneNumber)</p>
+<p>Stylist: @Model.Stylist.FirstName @Model.Stylist.LastName</p>
 
 <p>@Html.ActionLink("Edit Client", "Edit", new { id = Model.ClientId })</p>
 <p>@Html.ActionLink("Delete this Client", "Delete", new { id = Model.ClientId })</p>
-<p>@Html.ActionLink("Back to list", "Details", "Stylists", new { id = Model.StylistId })</p>
+<p>@Html.ActionLink($"Back to {Model.Stylist.FirstName}'s page", "Details", "Stylists", new { id = Model.StylistId })</p>

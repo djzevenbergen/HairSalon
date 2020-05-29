@@ -26,4 +26,4 @@
 
 }
 
-<p>@Html.ActionLink("Back to list", "Details", new {id = Model.ClientId})</p>
+<p>@Html.ActionLink($"Back to {Model.FirstName}'s details'", "Details", new {id = Model.ClientId})</p>
