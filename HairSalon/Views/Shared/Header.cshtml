@@ -3,9 +3,9 @@
 <form action="/search" method="get">
 
   <input type="text" name="search">
-  @Html.RadioButton("searchParam", "Stylist")
-  <label for="searchParam">Search By Stylist Name</label>
-  @Html.RadioButton("searchParam", "Client")
-  <label for="searchParam">Search by Client Name</label>
+  @Html.RadioButton("searchParam", "First", new { @checked = "checked" })
+  <label for="searchParam">Search By First Name</label>
+  @Html.RadioButton("searchParam", "Last")
+  <label for="searchParam">Search by Last Name</label>
   <button type="submit">Search</button>
 </form>
